@@ -53,7 +53,7 @@ app.delete('/api/chats/:userId', (req, res) => {
 });
 app.get('/api/settings', (_req, res) => {
   const prompt = db.prepare("SELECT value FROM settings WHERE key='system_prompt'").get()?.value || '';
-  res.json({ prompt, model: process.env.GEMINI_MODEL || 'gemini-2.5-flash', provider: 'Google Gemini' });
+  res.json({ prompt, model: process.env.GEMINI_MODEL || 'gemini-3.1-flash-lite', provider: 'Google Gemini' });
 });
 app.put('/api/settings', (req, res) => {
   const prompt = String(req.body.prompt || '').trim();
